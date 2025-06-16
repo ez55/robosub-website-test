@@ -186,6 +186,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-bottom: 100px;
 }
   
 .subteamButtons {
@@ -241,7 +242,13 @@
     flex-direction: row;
     justify-content: center;
     gap: 20px;
-  }
+    opacity: 1;
+    transition: opacity 0.3s ease; /* Smooth fade-in/out effect */
+}
+
+.imageAndText.fading {
+    opacity: 0; /* Fade out when the "fading" class is applied */
+}
   
   .subteam_image_container {
     display: flex;
@@ -281,27 +288,67 @@
     height: auto;
     margin-top: 80px;
 }
+
 .team_img_container {
-    display: block;
-    margin: 0 auto;
-    width: 80%;
-    height: 700px;
-    border: 1px solid black;
-    border-radius: 40px;
+    position:relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    overflow: hidden;
 }
+
+.team_img {
+    width:100%;
+    height:100%;
+    transition: filter 0.3s ease;
+}
+
+.team_img_container:hover .team_img {
+    filter: brightness(50%);
+}
+
+@keyframes text_entrance {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, calc(-50% + 20px));
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
 .team_text_container {
-    display: block;
-    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
     min-height: fit-content;
     height: auto;
     width: 70%;
+    z-index: 2;
+    opacity:0
 }
+
+.team_img_container:hover .team_text_container {
+    opacity: 1;
+    animation: text_entrance 0.5s ease;
+}
+
 .team_text_container p {
+    color: white;
     font-size: 15px;
     font-weight: 300;
     margin-top: 5px;
 }
 .team_text_container h4 {
+    color: white;
     margin-top: 5px;
     font-size: 17.5px;
     font-weight: 500;

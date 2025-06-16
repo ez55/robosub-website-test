@@ -15,7 +15,21 @@ const subteams = [
 
 export const Subteam: React.FC = () => {
     const [activeIndex, setActiveIndex] = useState(0);
+    const [isFading, setIsFading] = useState(false); // State for fade animation
     const active = subteams[activeIndex];
+
+
+    // TODO:
+    // Make animation not ugly
+    const handleButtonClick = (index: number) => {
+        if (index !== activeIndex) {
+            setIsFading(true); // Start fade-out animation
+            setTimeout(() => {
+                setActiveIndex(index); // Update active index
+                setIsFading(false); // Start fade-in animation
+            }, 300); // Match the CSS transition duration, make sure timeout matches CSS fade-in
+        }
+    };
 
     return (
         <div className="Subteam" id="Subteam">
@@ -29,27 +43,27 @@ export const Subteam: React.FC = () => {
                         <button
                             key={team.name}
                             className={`subteamButton ${activeIndex === index ? "active" : ""}`}
-                            onClick={() => setActiveIndex(index)}
+                            onClick={() => handleButtonClick(index)}
+                            aria-pressed={activeIndex === index} // Accessibility
                         >
                             {team.name}
                         </button>
                     ))}
                 </div>
 
-                <div className="imageAndText">
+                <div className={`imageAndText ${isFading ? "fading" : ""}`}>
                     <div className="subteam_image_container">
                         <div className="imageInner" style={active.imageStyle}></div>
                     </div>
                     <div className="subteam_text_container">
                         <p>{active.description}</p>
                         <br />
-                        <p><strong>Tools: dwadad</strong> {active.tools}</p>
+                        <p>
+                            <strong>Tools: </strong> {active.tools}
+                        </p>
                     </div>
                 </div>
             </div>
-            <br />
-            <br />
-            <br />
         </div>
     );
 };

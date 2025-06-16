@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from "../navbar/Navbar.tsx";
 import Footer from "../footer/Footer.tsx";
 import sponsorsList from "../sponsors/sponsors_list.ts";
+import "./sponsors.css";
 
 
 interface Props {
@@ -13,7 +14,6 @@ const SponsorCards: React.FC<Props> = ({
    SponsorWebsite
 }) => {
 
-    // React code goes here
     return (
         <>
             <div className='sponsor_cards'>
@@ -31,6 +31,7 @@ const Sponsors: React.FC = () => {
         <Navbar/>
           <div className='Sponsors_page'>
               <h1 className='title'>Sponsors</h1>
+              <h4 className='desc'>Illini RoboSub is apart of the <a href="https://irobotics.illinois.edu" target="_blank" style ={{ fontWeight:'bold'}}>IRobotics</a> organization which is proudly supported by the following:</h4>
                 <div className='Only_Cards' >
                     {
                         sponsorsList.map((val) => {
@@ -44,6 +45,10 @@ const Sponsors: React.FC = () => {
                     }
                 </div>
           </div>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
         <Footer/>
       </>
   )
