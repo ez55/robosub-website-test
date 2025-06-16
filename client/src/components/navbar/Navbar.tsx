@@ -56,7 +56,7 @@ const Navbar: React.FC = () => {
           <Link to="/">  <img className='logo_image' src="../../../favicon_black.png"/> </Link>
           </div>
           <div className='rso_title_container'>
-            <h1>ILLINI ROBOSUB</h1>
+          <Link to="/"><h1>ILLINI ROBOSUB</h1> </Link>
           </div>
           <div className='menu'>
             <button className='menu_button' onClick={() => {
