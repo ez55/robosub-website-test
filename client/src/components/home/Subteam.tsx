@@ -7,14 +7,14 @@ import {
 } from "./Subteam_Image_style";
 
 const subteams = [
-    { name: "Mechanical", description: "The mechanical team designs and fabricates the structural and mechanical components of the AUV, ensuring its integrity, functionality, and performance in challenging underwater conditions.", tools: "CAD (Fusion 360), CFD, Waterjet, Laser Cutter, 3D Printer", imageStyle: image_style_software },
-    { name: "Autonomy", description: "The objective of our autonomy team is to design the autonomous code that runs onboard the submarine. The team uses ROS2 (Robot Operating System 2), which is an open source set of Python/C++ libraries specifically geared for robotics software development.", tools: "ROS, ORCA4, Gazebo, C++", imageStyle: image_style_electrical },
-    { name: "Electrical", description: "The electrical team is responsible for taking all of the software commands and turning them into actions that the motors and other components of the submarine can execute. Our focus this season was primarily researching and looking at previous RoboSub teams’ electrical layouts, acquiring the electrical components that we plan on using, and designing a power distribution board for the submarine.", tools: "Fusion 360, Nvidia Xavier AGX, Stereo Labs Zed Camera", imageStyle: image_style_mechanical },
+    { name: "Mechanical", description: "The mechanical team designs and fabricates the structural and mechanical components of the AUV, ensuring its integrity, functionality, and performance in challenging underwater conditions.", tools: "CAD (Fusion 360), CFD, Waterjet, Laser Cutter, 3D Printer", imageStyle: image_style_mechanical },
+    { name: "Autonomy", description: "The objective of our autonomy team is to design the autonomous code that runs onboard the submarine. The team uses ROS2 (Robot Operating System 2), which is an open source set of Python/C++ libraries specifically geared for robotics software development.", tools: "ROS, ORCA4, Gazebo, C++", imageStyle: image_style_software },
+    { name: "Electrical", description: "The electrical team is responsible for taking all of the software commands and turning them into actions that the motors and other components of the submarine can execute. Our focus this season was primarily researching and looking at previous RoboSub teams’ electrical layouts, acquiring the electrical components that we plan on using, and designing a power distribution board for the submarine.", tools: "Fusion 360, Nvidia Xavier AGX, Stereo Labs Zed Camera", imageStyle: image_style_electrical },
     { name: "Software Infrastructure", description: "...", tools: "...", imageStyle: image_style_software_infrastructures },
 ];
 
 export const Subteam: React.FC = () => {
-    const [activeIndex, setActiveIndex] = useState(0);
+    const [activeIndex, setActiveIndex] = useState(2);
     const [isFading, setIsFading] = useState(false); // State for fade animation
     const active = subteams[activeIndex];
 
